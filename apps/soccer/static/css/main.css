@@ -1,0 +1,147 @@
+*{
+  text-align: center;
+  color: white;
+}
+
+.photo_cred{
+  opacity: .3;
+  position: fixed;
+  align-self: baseline;
+  text-align: center;
+}
+
+body{
+  background-image: url('/static/images/soccer_pitch.jpg');
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px;
+}
+
+.teams_crest{
+  position: fixed;
+  z-index: 0;
+  margin-top: -25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.champions_group_table_shift_left{
+  text-align: left;
+}
+
+footer{
+  background-color: red;
+  position: sticky;
+}
+
+.blocks2{
+  background-color: #292B2C;
+
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 2;
+}
+
+.block{
+  background-color: #292B2C;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 2;
+}
+
+.home{
+  background-color: black;
+  color: white;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  opacity: .8;
+  border-radius: 5px;
+}
+
+.league_rank{
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+#my_nav{
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+}
+#nav_block1{
+  width: 10%;
+  display: inline-block;
+  float: left;
+}
+
+#nav_block2{
+  width: 20%;
+  display: inline-block;
+  float: right;
+}
+
+.table_rank{
+  background-color: green;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  opacity: .7;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+
+#league_rank{
+  padding: 50px;
+  background-color: orange;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  width: 60%;
+}
+
+#matchday_table{
+  display: inline-block;
+  background-color: red;
+  width: 60%;
+}
+
+
+th{
+  border: 1px solid white;
+  padding: 10px;
+}
+td{
+  border: 1px solid white;
+  padding: 8px;
+}
+
+.fixture_table{
+  background-color: red;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  /*z-index: 2;*/
+}
+.crest{
+  z-index: 1;
+}
+.groups{
+  /*z-index: 2;*/
+  background-color: blue;
+}

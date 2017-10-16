@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="teams_crest">
+  {%for team in all_teams.teams %}
+  <a href="/teams/{{team.id}}"><img src="{{team.crestUrl}}" alt="" height="50" width="50"></a>
+  {%endfor%}
+</div>
+<br>
+<br>
+<br>
+<br>
+  <div class="block">
+    <h1>{{my_league.caption}}</h1>
+    <p>Match Day: {{my_league.currentMatchday}}</p>
+  </div>
+  <br>
+<div class="table_rank">
+    <p>League Table:</p>
+    <table id="league_rank">
+      <tr>
+        <th class="tg-yw4l">Rank</th>
+        <th class="tg-yw4l">- Team Name</th>
+        <th class="tg-yw4l">Points</th>
+        <th class="tg-yw4l">GP</th>
+        <th class="tg-yw4l">G</th>
+        <th class="tg-yw4l">GA</th>
+        <th class="tg-yw4l">GD</th>
+      </tr>
+      {%for teams in my_league_table.standing%}
+      <tr>
+        <td class="tg-yw4l">{{teams.rank}}</td>
+        {%if teams.team == '' or teams.team == None %}
+          {%for team in all_teams.teams%}
+          {%if teams.teamId == team.id%}
+        <td class="tg-yw4l"><a href="/teams/{{team.id}}">{{team.name}}</a></td>
+          {%endif%}
+          {%endfor%}
+        {%else%}
+        <td class="tg-yw4l"><a href="/teams/{{teams.teamId}}">{{teams.team}}</a></td>
+        {%endif%}
+        <td class="tg-yw4l">{{teams.points}}</td>
+        <td class="tg-yw4l">{{teams.playedGames}}</td>
+        <td class="tg-yw4l">{{teams.goals}}</td>
+        <td class="tg-yw4l">{{teams.goalsAgainst}}</td>
+        <td class="tg-yw4l">{{teams.goalDifference}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+    <table id="matchday_table">
+      <tr>
+        <th class="tg-yw4l">Home</th>
+        <th class="tg-yw4l">Away</th>
+        <th class="tg-yw4l">Date Matchday:{{my_league.currentMatchday}}</th>
+      </tr>
+      {%for match in current_match_day_fixture %}
+      <tr>
+        <td class="tg-wy4l">{{match.homeTeam}}</td>
+        <td class="tg-wy4l">{{match.awayTeam}}</td>
+        <td class="tg-wy4l">{{match.gameDate}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+  </div>
+{%endblock%}

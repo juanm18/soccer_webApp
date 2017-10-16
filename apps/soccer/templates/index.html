@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%block content%}
+<br>
+<br>
+<br>
+<br>
+<div class="home">
+  <br>
+    <h1>Leagues Featured:</h1>
+    {%for league in all_leagues %}
+    {% if league.caption == 'Champions League 2017/18' %}
+    <p>({{ league.league }}) <a href="/leagues/champions_league/{{league.id}}">{{league.caption}}</a> - MatchDays: {{ league.numberOfMatchdays }}</p>
+    {%else%}
+    <p>({{ league.league }}) <a href="/leagues/{{league.id}}">{{league.caption}}</a> - MatchDays: {{ league.numberOfMatchdays }}</p>
+    {%endif%}
+    {%endfor%}
+  </div>
+{%endblock%}

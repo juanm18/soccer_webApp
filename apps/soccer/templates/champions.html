@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="teams_crest">
+  {%for team in my_league_teams.teams%}
+  <img src="{{team.crestUrl}}" alt="" height="50" width="50">
+  {%endfor%}
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="blocks2">
+  <h1>{{my_league.caption}}</h1>
+  <h5>Current MatchDay: {{my_league.currentMatchday}}</h5>
+  <h5>Total Teams: {{my_league.numberOfTeams}}</h5>
+  <h5>Number of Matches: {{my_league.numberOfGames}}</h5>
+</div>
+<div class="fixture_table">
+  <table>
+    <tr>
+      <th class="tg-yw4l">Home Team</th>
+      <th class="tg-yw4l">Score</th>
+      <th class="tg-yw4l">Away Team</th>
+      <th class="tg-yw4l">MatchDay</th>
+      <th class="tg-yw4l">Date</th>
+      <th class="tg-yw4l">Status</th>
+    </tr>
+    {%for match in my_league_fixtures.fixtures%}
+    <tr>
+      <td class="tg-yw4l">{{match.homeTeamName}}</td>
+      {%if match.result.goalsHomeTeam == None or match.result.goalsAwayTeam == None%}
+      <td class="tg-yw4l">TBA</td>
+      {%else%}
+      <td class="tg-yw4l">{{match.result.goalsHomeTeam}} - {{match.result.goalsAwayTeam}}</td>
+      {%endif%}
+      <td class="tg-yw4l">{{match.awayTeamName}}</td>
+      <td class="tg-yw4l">{{match.matchday}}</td>
+      <td class="tg-yw4l"> {{match.date}}</td>
+      <td class="tg-yw4l">{{match.status}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+</div>
+<div class="groups">
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.A%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.B%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.C%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.D%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.E%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.F%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.G%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table>
+    <tr>
+      <th class="tg-yw4l">Team</th>
+      <th class="tg-yw4l">Points</th>
+      <th class="tg-yw4l">Goals</th>
+      <th class="tg-yw4l">GA</th>
+      <th class="tg-yw4l">GD</th>
+    </tr>
+    {%for match in my_league_table.standings.H%}
+    <tr>
+      <td class="tg-yw4l"><p class="champions_group_table_shift_left">{{match.team}}<img src="{{match.crestURI}}" alt="" height="40" width="40"></p></td>
+      <td class="tg-yw4l">{{match.points}}</td>
+      <td class="tg-yw4l">{{match.goals}}</td>
+      <td class="tg-yw4l">{{match.goalsAgainst}}</td>
+      <td class="tg-yw4l">{{match.goalDifference}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+</div>
+
+{%endblock%}

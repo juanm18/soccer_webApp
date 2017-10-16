@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="block">
+  <h1>{{my_team.name}}</h1>
+  <p><img src="{{my_team.crestUrl}}" onerror="this.src='http://www.clker.com/cliparts/b/q/N/I/Y/7/soccer-ball-hi.png'" alt="" height="150" width="150"></p>
+</div>
+
+------------
+{% for match in my_team_fixtures.fixtures%}
+
+<li>{{match.homeTeamName}}
+  {%if match.result.goalsHomeTeam == None or match.result.goalsAwayTeam == None %}
+  N/A - N/A
+  {%else%}
+  {{match.result.goalsHomeTeam}} -
+  {{match.result.goalsAwayTeam}}
+  {%endif%}
+  {{match.awayTeamName}} |
+  {{match.date}} -
+  {{match.status}}</li>
+{%endfor%}
+------------
+Roster:
+{%for player in my_team_players.players%}
+<li>{{player.name}} - {{player.position}}</li>
+{%endfor%}
+
+{%endblock%}
